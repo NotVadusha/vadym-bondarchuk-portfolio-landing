@@ -1,13 +1,22 @@
 "use client";
 
-import { Camera, Mail, Share2 } from "lucide-react";
+import { MailIcon, Share2Icon } from "lucide-react";
 import { useState } from "react";
+import {
+  FaGithub as FaGithubIcon,
+  FaLinkedinIn as FaLinkedinInIcon,
+} from "react-icons/fa";
+import { CopyDataModal } from "./CopyDataModal";
 import { EducationSection } from "./EducationSection";
 import { HeroSection } from "./HeroSection";
 import { PersonSection } from "./PersonSection";
 import { ProjectsSection } from "./ProjectsSection";
 import { Button } from "./ui/button";
 import { WorkExperienceSection } from "./WorkExperienceSection";
+
+const EMAIL_URL = process.env.NEXT_PUBLIC_EMAIL_URL;
+const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL;
+const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL;
 
 const Portfolio = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -29,37 +38,42 @@ const Portfolio = () => {
         </Button>
       </nav>
 
-      {/* Hero Section with Particles */}
       <HeroSection isDarkMode={isDarkMode} />
 
       <PersonSection isDarkMode={isDarkMode} />
 
       <ProjectsSection />
 
-      <WorkExperienceSection />
-      <EducationSection />
+      <WorkExperienceSection isDarkMode={isDarkMode} />
+      <EducationSection isDarkMode={isDarkMode} />
 
       {/* Footer */}
-      <footer className="py-8 text-center">
+      <footer className="py-8 text-center" id="contact">
         <div className="flex justify-center gap-6">
-          <a
-            href="#"
-            className="text-current hover:scale-110 transition-transform"
-          >
-            <Camera className="w-6 h-6" />
-          </a>
-          <a
-            href="#"
-            className="text-current hover:scale-110 transition-transform"
-          >
-            <Share2 className="w-6 h-6" />
-          </a>
-          <a
-            href="#"
-            className="text-current hover:scale-110 transition-transform"
-          >
-            <Mail className="w-6 h-6" />
-          </a>
+          <CopyDataModal
+            triggerComponent={<Share2Icon className="size-8" />}
+            title="Share"
+            description="Share the data to the clipboard"
+            value={window.location.href}
+          />
+          <CopyDataModal
+            triggerComponent={<MailIcon className="size-8" />}
+            title="Email"
+            description="Email the data to the clipboard"
+            value={EMAIL_URL ?? ""}
+          />
+          <CopyDataModal
+            triggerComponent={<FaLinkedinInIcon className="size-8" />}
+            title="Linkedin"
+            description="Linkedin the data to the clipboard"
+            value={LINKEDIN_URL ?? ""}
+          />
+          <CopyDataModal
+            triggerComponent={<FaGithubIcon className="size-8" />}
+            title="Github"
+            description="Github the data to the clipboard"
+            value={GITHUB_URL ?? ""}
+          />
         </div>
       </footer>
     </div>

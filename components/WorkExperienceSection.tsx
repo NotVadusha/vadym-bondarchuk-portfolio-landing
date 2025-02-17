@@ -2,7 +2,11 @@ import { experiences } from "@/constants/workExperience";
 import { BriefcaseIcon } from "lucide-react";
 import { TimelineItem } from "./TimeLineItem";
 
-export const WorkExperienceSection = () => {
+export const WorkExperienceSection = ({
+  isDarkMode,
+}: {
+  isDarkMode: boolean;
+}) => {
   return (
     <section className="px-6 py-16 max-w-4xl mx-auto">
       <div className="mb-16">
@@ -12,7 +16,7 @@ export const WorkExperienceSection = () => {
         </div>
         <div className="border-l border-gray-300">
           {experiences.map((exp, index) => (
-            <TimelineItem key={index} {...exp} />
+            <TimelineItem key={index} {...exp} isDarkMode={isDarkMode} />
           ))}
         </div>
       </div>

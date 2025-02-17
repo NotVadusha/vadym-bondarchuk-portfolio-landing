@@ -23,49 +23,16 @@ export const HeroSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
     if (!heroRef.current) return [];
     const rect = heroRef.current.getBoundingClientRect();
 
-    if (isDarkMode) {
-      // Stars for dark mode (your existing code)
-      return Array.from({ length: 50 }, (_, i) => ({
-        id: i,
-        x: Math.random() * rect.width,
-        y: Math.random() * rect.height,
-        baseX: Math.random() * rect.width,
-        baseY: Math.random() * rect.height,
-        size: Math.random() * 8 + 1,
-        speed: Math.random() * 0.5 + 0.2,
-      }));
-    } else {
-      // Sun with rays for light mode
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 6;
-
-      // Create one large central particle (sun)
-      const sunParticle = {
-        id: 0,
-        x: centerX - 37.5,
-        y: centerY - 37.5,
-        baseX: centerX - 37.5,
-        baseY: centerY - 37.5,
-        size: 80,
-        speed: 0.1,
-      };
-
-      // Create rays around the sun
-      const rays = Array.from({ length: 12 }, (_, i) => ({
-        id: i + 1,
-        x: centerX,
-        y: centerY,
-        baseX: centerX,
-        baseY: centerY,
-        size: 5,
-        speed: 0.05,
-        angle: (i * Math.PI * 2) / 12,
-        length: 80,
-      }));
-
-      return [sunParticle, ...rays];
-    }
-  }, [isDarkMode]);
+    return Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      x: Math.random() * (rect.width - 50),
+      y: Math.random() * (rect.height - 50),
+      baseX: Math.random() * (rect.width - 50),
+      baseY: Math.random() * (rect.height - 50),
+      size: Math.random() * 8 + 1,
+      speed: Math.random() * 0.5 + 0.2,
+    }));
+  }, []);
 
   const [particles, setParticles] = useState<Particle[]>([]);
 
@@ -143,26 +110,14 @@ export const HeroSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
             className={`absolute transition-all duration-75 ${
               isDarkMode
                 ? "bg-yellow-400/50 rounded-full shadow-[0px_0px_12px_3px_rgba(255,215,0,1)]"
-                : particle?.angle !== undefined
-                ? "bg-orange-400/70 rounded-sm" // Ray
-                : "bg-orange-400 rounded-full shadow-[0px_0px_90px_50px_rgba(255,165,0,0.5)]" // Sun
+                : "bg-yellow-400/50 rounded-full shadow-[0px_0px_12px_3px_rgba(255,215,0,1)]"
             }`}
             style={{
-              width:
-                particle.angle !== undefined
-                  ? `${particle.size}px`
-                  : `${particle.size}px`,
-              height:
-                particle.angle !== undefined
-                  ? `${particle.length}px`
-                  : `${particle.size}px`,
-              opacity: particle.angle !== undefined ? 0.6 : 1,
-              transform:
-                particle.angle !== undefined
-                  ? `translate(${particle.x}px, ${particle.y}px) rotate(${particle.angle}rad)`
-                  : `translate(${particle.x}px, ${particle.y}px)`,
-              transformOrigin:
-                particle.angle !== undefined ? "center top" : "center center",
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              opacity: 1,
+              transform: `translate(${particle.x}px, ${particle.y}px)`,
+              transformOrigin: "center center",
               willChange: "transform",
             }}
           />

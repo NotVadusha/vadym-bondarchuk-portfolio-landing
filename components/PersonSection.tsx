@@ -1,12 +1,24 @@
+import { techs } from "@/constants/techs";
 import Image from "next/image";
 import { Button } from "./ui/button";
 
 export const PersonSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
+  const handleDownloadCV = () => {
+    window.open("/cv.pdf", "_blank");
+  };
+
+  const handleContactMe = () => {
+    window.scrollTo({
+      top: document.getElementById("contact")?.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="px-6 py-16 max-w-4xl mx-auto">
       <div className="flex flex-col md:flex-row items-center gap-12">
         {/* Photo Container */}
-        <div className="relative w-64 h-64 flex-shrink-0">
+        <div className="relative w-96 h-96 flex-shrink-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl transform rotate-6 opacity-30"></div>
           <Image
             src="/person.png"
@@ -20,28 +32,32 @@ export const PersonSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
         {/* Description Container */}
         <div className="flex-1 space-y-4">
           <h2 className="text-3xl font-bold">About Me</h2>
-          <p className="text-lg leading-relaxed">
-            Hello! I&apos;m a passionate Full-Stack Engineer with expertise in
-            building modern web applications. I specialize in React, Node.js,
-            and cloud technologies, creating scalable solutions that solve
-            real-world problems.
+          <p
+            className={`text-lg leading-relaxed ${
+              isDarkMode ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
+            Hey, I&apos;m Vadym, a Full-Stack Developer passionate about
+            building modern, scalable, and efficient web solutions. I&apos;m all
+            about clean, maintainable code and seamless teamwork, whether
+            it&apos;s in an agile or scrum environment.
           </p>
           <div className="flex flex-wrap gap-3">
             {/* Tech Stack Pills */}
-            {["React", "Node.js", "TypeScript", "Next.js", "AWS"].map(
-              (tech) => (
-                <span
-                  key={tech}
-                  className={`px-4 py-2 rounded-full text-sm ${
+            {techs.map((tech) => (
+              <span
+                key={tech}
+                className={`px-4 py-2 rounded-full text-sm cursor-pointer 
+                  hover:scale-105 transition-transform
+                  ${
                     isDarkMode
                       ? "bg-gray-800 text-gray-200"
                       : "bg-gray-200 text-gray-800"
                   }`}
-                >
-                  {tech}
-                </span>
-              ),
-            )}
+              >
+                {tech}
+              </span>
+            ))}
           </div>
 
           {/* Optional: Add social links or CTA */}
@@ -52,11 +68,13 @@ export const PersonSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
                   ? "bg-white text-gray-900 hover:bg-gray-200"
                   : "bg-gray-900 text-white hover:bg-gray-800"
               } hover:scale-105 transition-transform`}
+              onClick={handleDownloadCV}
             >
               Download CV
             </Button>
             <Button
               variant="outline"
+              onClick={handleContactMe}
               className={`${
                 isDarkMode
                   ? "bg-white text-gray-900 hover:bg-gray-200"

@@ -2,7 +2,7 @@ import { education } from "@/constants/education";
 import { GraduationCapIcon } from "lucide-react";
 import { TimelineItem } from "./TimeLineItem";
 
-export const EducationSection = () => {
+export const EducationSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
   return (
     <section className="px-6 py-16 max-w-4xl mx-auto">
       <div>
@@ -12,7 +12,7 @@ export const EducationSection = () => {
         </div>
         <div className="border-l border-gray-300">
           {education.map((edu, index) => (
-            <TimelineItem key={index} {...edu} />
+            <TimelineItem key={index} {...edu} isDarkMode={isDarkMode} />
           ))}
         </div>
       </div>

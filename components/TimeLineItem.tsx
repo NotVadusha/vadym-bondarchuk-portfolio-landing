@@ -6,6 +6,7 @@ export interface TimelineItemProps {
   title: string;
   place: string;
   description: string[];
+  isDarkMode: boolean;
 }
 
 export const TimelineItem = ({
@@ -14,6 +15,7 @@ export const TimelineItem = ({
   title,
   place,
   description,
+  isDarkMode,
 }: TimelineItemProps) => (
   <div className="relative pl-8 py-6 group">
     <div className="absolute left-0 group-hover:left-[-1px] top-0 h-full w-px group-hover:w-0.5 bg-gray-300 group-hover:bg-blue-500 transition-colors" />
@@ -36,7 +38,10 @@ export const TimelineItem = ({
 
       <ul className="space-y-2">
         {description.map((item: string, index: number) => (
-          <li key={index} className="text-gray-600">
+          <li
+            key={index}
+            className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+          >
             • {item}
           </li>
         ))}
