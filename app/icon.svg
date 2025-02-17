@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g>
+    <circle cx="50" cy="50" r="45" fill="black" />
+    <!-- V shape -->
+    <path d="M30 25 L50 75 L70 25" 
+          stroke="white" 
+          stroke-width="6" 
+          fill="none" />
+    <!-- Circuit board lines -->
+    <path d="M15 45 L25 45 M75 45 L85 45 M15 55 L25 55 M75 55 L85 55"
+          stroke="white" 
+          stroke-width="2" 
+          fill="none" />
+  </g>
+</svg>
