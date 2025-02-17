@@ -1,10 +1,15 @@
+"use client";
+
 import { techs } from "@/constants/techs";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 
-export const PersonSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
+export const PersonSection = () => {
+  const router = useRouter();
+
   const handleDownloadCV = () => {
-    window.open("/cv.pdf", "_blank");
+    router.push("/cv.pdf");
   };
 
   const handleContactMe = () => {
@@ -32,11 +37,7 @@ export const PersonSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
         {/* Description Container */}
         <div className="flex-1 space-y-4">
           <h2 className="text-3xl font-bold">About Me</h2>
-          <p
-            className={`text-lg leading-relaxed ${
-              isDarkMode ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
+          <p className="text-lg leading-relaxed dark:text-gray-300 text-gray-600">
             Hey, I&apos;m Vadym, a Full-Stack Developer passionate about
             building modern, scalable, and efficient web solutions. I&apos;m all
             about clean, maintainable code and seamless teamwork, whether
@@ -47,13 +48,9 @@ export const PersonSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
             {techs.map((tech) => (
               <span
                 key={tech}
-                className={`px-4 py-2 rounded-full text-sm cursor-pointer 
+                className="px-4 py-2 rounded-full text-sm cursor-pointer 
                   hover:scale-105 transition-transform
-                  ${
-                    isDarkMode
-                      ? "bg-gray-800 text-gray-200"
-                      : "bg-gray-200 text-gray-800"
-                  }`}
+                  dark:bg-gray-800 dark:text-gray-200 bg-gray-200 text-gray-800"
               >
                 {tech}
               </span>
@@ -63,11 +60,9 @@ export const PersonSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
           {/* Optional: Add social links or CTA */}
           <div className="flex gap-4 pt-4">
             <Button
-              className={`${
-                isDarkMode
-                  ? "bg-white text-gray-900 hover:bg-gray-200"
-                  : "bg-gray-900 text-white hover:bg-gray-800"
-              } hover:scale-105 transition-transform`}
+              className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200
+                        bg-gray-900 text-white hover:bg-gray-800
+                          hover:scale-105 transition-transform"
               onClick={handleDownloadCV}
             >
               Download CV
@@ -75,11 +70,9 @@ export const PersonSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
             <Button
               variant="outline"
               onClick={handleContactMe}
-              className={`${
-                isDarkMode
-                  ? "bg-white text-gray-900 hover:bg-gray-200"
-                  : "hover:bg-gray-100"
-              } hover:scale-105 transition-transform`}
+              className="
+                  dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200
+                  hover:bg-gray-100 hover:scale-105 transition-transform"
             >
               Contact Me
             </Button>

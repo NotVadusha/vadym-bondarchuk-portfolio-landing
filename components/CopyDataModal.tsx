@@ -1,3 +1,5 @@
+"use client";
+
 import { CopyIcon, LinkIcon } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";

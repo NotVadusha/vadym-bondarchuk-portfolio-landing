@@ -15,7 +15,7 @@ interface Particle {
   length?: number;
 }
 
-export const HeroSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
+export const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -107,11 +107,9 @@ export const HeroSection = ({ isDarkMode }: { isDarkMode: boolean }) => {
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className={`absolute transition-all duration-75 ${
-              isDarkMode
-                ? "bg-yellow-400/50 rounded-full shadow-[0px_0px_12px_3px_rgba(255,215,0,1)]"
-                : "bg-yellow-400/50 rounded-full shadow-[0px_0px_12px_3px_rgba(255,215,0,1)]"
-            }`}
+            className="absolute transition-all duration-75 
+            dark:bg-yellow-400/50 dark:rounded-full dark:shadow-[0px_0px_12px_3px_rgba(255,215,0,1)] 
+            bg-yellow-400/50 rounded-full shadow-[0px_0px_12px_3px_rgba(255,215,0,1)]"
             style={{
               width: `${particle.size}px`,
               height: `${particle.size}px`,
