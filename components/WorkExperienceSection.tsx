@@ -4,7 +4,7 @@ import { TimelineItem } from "./TimeLineItem";
 
 export const WorkExperienceSection = () => {
   return (
-    <section className="px-6 py-16 max-w-4xl mx-auto">
+    <section className="px-6 py-16 max-w-4xl mx-auto" id="work">
       <div className="mb-16">
         <div className="flex items-center gap-3 mb-8">
           <BriefcaseIcon className="w-6 h-6" />

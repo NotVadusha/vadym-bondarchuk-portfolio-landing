@@ -3,19 +3,19 @@ export const projects = [
     id: 1,
     title: "Fyrst",
     tech: ["React", "NestJs", "GCP", "Redis", "PostgreSQL"],
-    image: "/idkspanish.png",
+    image: "/Fyrst.png",
   },
   {
     id: 2,
     title: "Rick and Morty",
     tech: ["React", "TailwindCSS"],
-    image: "/idkspanish.png",
+    image: "/rickandmorty.png",
   },
   {
     id: 3,
     title: "Mobile Auth App",
     tech: ["React Native", "Firebase", "Expo"],
-    image: "/idkspanish.png",
+    image: "/authapp.png",
   },
   {
     id: 4,

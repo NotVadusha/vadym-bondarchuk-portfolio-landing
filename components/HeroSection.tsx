@@ -101,7 +101,11 @@ export const HeroSection = () => {
   }, [mousePosition]);
 
   return (
-    <section ref={heroRef} className="relative h-screen overflow-hidden">
+    <section
+      ref={heroRef}
+      className="relative h-screen overflow-hidden"
+      id="hero"
+    >
       {/* Particle Field */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map((particle) => (

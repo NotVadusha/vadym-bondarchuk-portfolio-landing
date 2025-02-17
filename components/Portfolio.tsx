@@ -2,6 +2,7 @@ import { DarkmodeSwitcher } from "./DarkmodeSwitcher";
 import { EducationSection } from "./EducationSection";
 import { FooterComponent } from "./Footer";
 import { HeroSection } from "./HeroSection";
+import Navbar from "./Navbar";
 import { PersonSection } from "./PersonSection";
 import { ProjectsSection } from "./ProjectsSection";
 import { WorkExperienceSection } from "./WorkExperienceSection";
@@ -9,12 +10,13 @@ import { WorkExperienceSection } from "./WorkExperienceSection";
 const Portfolio = () => {
   return (
     <div className="min-h-screen dark:bg-gray-900 dark:text-white bg-white text-gray-900">
-      {/* Navigation */}
-      <nav className="fixed top-0 right-0 p-6 z-50">
+      <div className="sticky top-0 right-0 p-4 z-50 w-fit">
         <DarkmodeSwitcher />
-      </nav>
+      </div>
 
       <HeroSection />
+
+      <Navbar />
 
       <PersonSection />
 
@@ -23,7 +25,6 @@ const Portfolio = () => {
       <WorkExperienceSection />
       <EducationSection />
 
-      {/* Footer */}
       <FooterComponent />
     </div>
   );

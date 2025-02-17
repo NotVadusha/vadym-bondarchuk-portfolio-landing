@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const ProjectsSection = () => {
   return (
-    <section className="px-6 py-16">
+    <section className="px-6 py-16" id="projects">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <div
@@ -11,11 +11,11 @@ export const ProjectsSection = () => {
             className="relative overflow-hidden rounded-lg shadow-lg hover:scale-105 transition-transform duration-200"
           >
             <Image
-              width={400}
-              height={300}
+              width={600}
+              height={450}
               src={project.image}
               alt={project.title}
-              className="w-full h-64 object-cover"
+              className="w-full h-64 object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-6 flex flex-col justify-end opacity-0 hover:opacity-100 transition-opacity duration-200">
               <h3 className="text-white text-xl font-bold">{project.title}</h3>

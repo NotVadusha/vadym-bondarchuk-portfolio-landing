@@ -20,17 +20,17 @@ export const PersonSection = () => {
   };
 
   return (
-    <section className="px-6 py-16 max-w-4xl mx-auto">
+    <section className="px-6 py-16 max-w-4xl mx-auto" id="about">
       <div className="flex flex-col md:flex-row items-center gap-12">
         {/* Photo Container */}
         <div className="relative w-96 h-96 flex-shrink-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl transform rotate-6 opacity-30"></div>
           <Image
-            src="/person.png"
+            src="/person.jpg"
             alt="Vadym Bondarchuk"
-            width={256}
-            height={256}
-            className="relative rounded-2xl object-cover w-full h-full shadow-lg"
+            width={1024}
+            height={1024}
+            className="relative rounded-2xl object-cover object-[20%_75%]  w-full h-full shadow-lg"
           />
         </div>
 
@@ -57,7 +57,6 @@ export const PersonSection = () => {
             ))}
           </div>
 
-          {/* Optional: Add social links or CTA */}
           <div className="flex gap-4 pt-4">
             <Button
               className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200
