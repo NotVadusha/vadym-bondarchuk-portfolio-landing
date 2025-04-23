@@ -44,11 +44,12 @@ export const CopyDataModal = ({
           onClick={() => setIsOpen(true)}
           variant={"ghost"}
           className="text-current hover:scale-110 transition-transform rounded-full"
+          aria-controls="copy-data-modal-dialog"
         >
           {triggerComponent}
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent id="copy-data-modal-dialog">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
@@ -60,6 +61,7 @@ export const CopyDataModal = ({
             variant={"outline"}
             onClick={handleCopy}
             className="text-current hover:scale-110 transition-transform"
+            aria-controls="copy-data-modal-dialog"
           >
             <CopyIcon className="size-8" />
           </Button>
@@ -68,6 +70,7 @@ export const CopyDataModal = ({
             variant={"outline"}
             onClick={handleRedirect}
             className="text-current hover:scale-110 transition-transform"
+            aria-controls="copy-data-modal-dialog"
           >
             <LinkIcon className="size-8" />
           </Button>

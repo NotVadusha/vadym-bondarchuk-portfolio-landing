@@ -11,6 +11,7 @@ export const DarkmodeSwitcher = () => {
       size="icon"
       className="p-2 rounded-full bg-gray-800 text-white hover:scale-110 transition-transform"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-controls={undefined}
     >
       {isDarkMode ? "🌞" : "🌙"}
     </Button>
