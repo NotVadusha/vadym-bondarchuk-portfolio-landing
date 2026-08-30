@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# exp.world — Vadym Bondarchuk
 
-## Getting Started
+Портфоліо, замасковане під рівень гри: дрон-комета літає над low-poly мапою,
+уздовж кар'єрного шляху з 5 маяків-компаній і 24 скіл-кристалів.
 
-First, run the development server:
+**Стек:** Vite + React 19 + TypeScript + Tailwind, three.js через
+`@react-three/fiber`, стан — zustand (спільний стор гри й секцій сторінки),
+звук — WebAudio-осцилятори (без файлів).
+
+## Запуск
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev        # http://localhost:5173
+pnpm build      # typecheck + прод-білд у dist/
+pnpm preview    # локальний прев'ю прод-білду
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Керування в грі
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **WASD / стрілки** — політ у площині, відносно камери
+- **Мишка drag** — обертання камери, **колесо** — зум (8–26)
+- **ESC** — вихід в оглядовий режим
+- **Мобільний**: ліва половина екрана — віртуальний джойстик, права — камера
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Структура
 
-## Learn More
+- `src/constants/gameData.ts` — позиції вузлів, скіли, сплайн шляху, декор, палітра
+- `src/store/gameStore.ts` — zustand-стор фаз/прогресу (idle → transition → playing → complete)
+- `src/components/game/` — 3D-світ, дрон, маяки, пікапи, камера-риг, звук, керування, HUD
+- `src/components/sections/` — шість секцій сторінки: гравець, квест-лог, трофеї,
+  закриті місії, інвентар, партія
+- `src/content/` — увесь текст двома мовами (`uk.ts` / `en.ts`) за спільним типом
+  з `types.ts`; перемикач мови — у навбарі, вибір лишається в localStorage
+- `src/index.css` — дизайн-система (токени, брутал-компоненти); тем одна, світла
 
-To learn more about Next.js, take a look at the following resources:
+Розмітка тексту в `src/content`: `*жирний*` і `~акцент~` (оранжевий) —
+рендерить `<Rich>`, вкладеність не підтримується.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Env
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Скopiюйте `.env.example` → `.env` і заповніть контакти:
 
-## Deploy on Vercel
+```
+VITE_EMAIL_URL=...
+VITE_LINKEDIN_URL=...
+VITE_GITHUB_URL=...
+VITE_TELEGRAM_URL=...
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Без `.env` секція «Партія» рендериться без кнопки пошти й посилань —
+жодних контактів у коді не захардкоджено.
