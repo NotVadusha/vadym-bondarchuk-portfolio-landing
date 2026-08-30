@@ -156,8 +156,6 @@ export const en: Content = {
       "mode: ~AI-native~",
       "languages: ~ukr · eng · čeština~",
     ],
-    sheetHeader:
-      "// stat sheet — an honest self-assessment: every star has proof, every missing one has a reason",
     sheetRows: [
       {
         name: "Backend ownership",

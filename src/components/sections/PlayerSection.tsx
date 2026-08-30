@@ -44,7 +44,9 @@ export function PlayerSection() {
           </div>
 
           <div className="sheet rv">
-            <header>{p.sheetHeader}</header>
+            <header>
+              <h2>Stat sheet</h2>
+            </header>
             {p.sheetRows.map((row) => (
               <div className="srow" key={row.name}>
                 <div className="nm">{row.name}</div>
