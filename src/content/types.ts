@@ -136,7 +136,6 @@ export interface Content {
     bio: string;
     sticks: string[];
     facts: string[];
-    sheetHeader: string;
     sheetRows: SheetRow[];
   };
   quests: { tag: string; title: string; items: Quest[] };

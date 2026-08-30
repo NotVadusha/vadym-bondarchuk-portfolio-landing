@@ -1053,6 +1053,9 @@ body.ready .rvh:nth-child(5) {
   padding: 12px 18px;
   border-bottom: 2px solid var(--ink);
   background: var(--bsoft);
+  text-align: center;
+}
+.sheet header h2 {
   font: 700 12px var(--mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;

@@ -156,8 +156,6 @@ export const uk: Content = {
       "режим: ~AI-native~",
       "мови: ~укр · eng · čeština~",
     ],
-    sheetHeader:
-      "// stat sheet — чесна самооцінка: у кожної зірки є доказ, у кожної відсутньої — причина",
     sheetRows: [
       {
         name: "Backend ownership",
