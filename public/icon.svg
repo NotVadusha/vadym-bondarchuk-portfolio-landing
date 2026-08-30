@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#ff5c1c"/>
-  <text x="16" y="23" font-size="16" font-family="monospace" font-weight="bold" text-anchor="middle" fill="#fff">ВБ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#ff5c1c"/>
+  <path d="M34 18 48 34 34 50 20 34Z" fill="#16233d"/>
+  <path d="M32 16 46 32 32 48 18 32Z" fill="#ffffff"/>
+  <path d="M18 32 32 32 32 48Z" fill="#ffd0b5"/>
+  <path d="M32 32 46 32 32 48Z" fill="#ffab7d"/>
+  <path d="M32 16 46 32 32 48 18 32Z" fill="none" stroke="#16233d" stroke-width="2.5" stroke-linejoin="round"/>
 </svg>
